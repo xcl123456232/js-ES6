@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>经典面试题</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		var arr1 = [];
+		// 变量i是全局作用域下的值
+		for (var i = 0; i < 2; i++) {
+			arr1[i] = function () {
+				console.log(i);
+			}
+		}
+		console.log(i);
+		arr1[0]();
+		arr1[1]();
+
+
+		let arr = [];
+		// 每次循环都会产生一个块级作用域，每个块级作用域中的变量都是不同的，执行时产生的是作用域下的值
+		for (let i = 0; i < 2; i++) {
+			arr[i] = function () {
+				console.log(i);
+			}
+		}
+
+		arr[0]();
+		arr[1]();
+	</script>
+</body>
+
+</html>

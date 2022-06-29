@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>点击</button>
+    <Script>
+        // 函数不同的调用方式决定了this的指向不同
+        // 1.普通函数this指向window
+        function fn() {
+            console.log('普通函数的this' + this);
+        }
+        // fn()
+        window.fn();
+        // 2.对象的方法 this指向的是对象o
+        var o = {
+            sayHi: function () {
+                console.log('对象方法this' + this);
+            }
+        }
+        o.sayHi();
+        // 3.构造函数this指向ldh这个实例对象
+        // 原型对象里面this指向的也是ldh这个实例
+        function Star() {
+            console.log(this);
+        }
+        var ldh = new Star();
+        // 4.绑定事件函数this指向的是函数调用者btn这个按钮
+        var btn = document.querySelector('button')
+        btn.onclick = function () {
+            console.log('绑定事件函数this:' + this);
+        };
+        // 5.定时器函数this指向的也是window
+        window.setTimeout(function () {
+            console.log('定时器的this' + this);
+        }, 1000);
+        // 6.立即执行函数this还是指向window
+        (function () {
+            console.log('立即执行函数this' + this);
+        })()
+
+
+
+    </Script>
+</body>
+
+</html>

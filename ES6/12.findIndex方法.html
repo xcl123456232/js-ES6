@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>findIndex方法</title>
+</head>
+
+<body>
+	<script type="text/javascript">
+		// 返回第一次查找符合条件的元素下标
+		let ary = [10, 20, 50];
+		let index = ary.findIndex(item => item > 15);
+		console.log(index)
+
+		var ary1 = [{
+			id: 1,
+			name: '张三',
+			score: 12
+		}, {
+			id: 2,
+			name: '李四',
+			score: 45
+		}];
+		let index1 = ary1.findIndex(item => item.score > 15);
+		console.log(index1)
+	</script>
+</body>
+
+</html>
